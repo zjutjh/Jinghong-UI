@@ -1,3 +1,8 @@
 {
-  "cSpell.words": ["Jing"]
+  "cSpell.words": ["Avenir", "Jing", "jinghong"],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#153504",
+    "titleBar.activeBackground": "#1D4A06",
+    "titleBar.activeForeground": "#F2FEEB"
+  }
 }
