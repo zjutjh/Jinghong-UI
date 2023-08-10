@@ -1,0 +1,25 @@
+{
+  "name": "jinghong-ui",
+  "version": "1.0.1",
+  "scripts": {
+    "build": "vite build",
+    "new": "cd ./scripts && bash new.sh"
+  },
+  "main": "./src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "vue3",
+    "ui",
+    "jinghong-ui",
+    "typescript"
+  ],
+  "author": "jhwl",
+  "license": "MIT",
+  "dependencies": {
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.1"
+  }
+}
