@@ -19,7 +19,9 @@
   "author": "jhwl",
   "license": "MIT",
   "dependencies": {
+    "@vueuse/core": "^10.3.0",
     "vite": "^4.4.5",
-    "vite-plugin-dts": "^3.5.1"
+    "vite-plugin-dts": "^3.5.1",
+    "vue": "^3.3.4"
   }
 }

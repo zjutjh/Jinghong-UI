@@ -31,5 +31,11 @@ export default defineConfig({
       }
     }
   },
-  plugins: [vue(), dts()],
+  plugins: [vue(
+    {
+      script: {
+        defineModel: true,
+      },
+    }
+  ), dts()],
 })
