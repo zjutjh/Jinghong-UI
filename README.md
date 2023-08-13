@@ -1,6 +1,8 @@
 # JingHong-UI
 精弘组件库 基于 Vue3 + Vite + TypeScript
 
+[![NPM](https://www.npmjs.com/package/jinghong-ui)](npm)
+
 # 代码贡献说明
 
 本项目代码分为两部分
