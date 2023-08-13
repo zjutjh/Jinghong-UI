@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import { inject, ref } from 'vue';
+import { JColorThemeDefault } from '../colors';
+import { ColorThemeKey } from '../provide';
+
 
 const props = defineProps<{
   onClick?: () => void,
   type?: 'primary' | 'secondary',
   disabled?: boolean,
 }>();
+
+const color = inject(ColorThemeKey, ref(JColorThemeDefault))
 
 </script>
 <template>
@@ -15,7 +21,7 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 button {
-  color: black;
+  color: v-bind('color.text');
   border: none;
   border-radius: 20px;
   font-size: 18px;
@@ -31,11 +37,11 @@ button {
   }
 
   &.primary {
-    background-color: #d20001;
+    background-color: v-bind('color.primary');
     color: white;
 
     &:hover {
-      background-color: #ff0000;
+      opacity: 0.8;
       transition: background-color 0.5s;
     }
 
@@ -46,11 +52,11 @@ button {
   }
 
   &.secondary {
-    background-color: #fe6800;
+    background-color: v-bind('color.secondary');
     color: white;
 
     &:hover {
-      background-color: #ff0000;
+      opacity: 0.8;
       transition: background-color 0.5s;
     }
 

@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { JButton } from 'jh-ui'
+import { RouterView } from 'vue-router'
+import { JConfig } from 'jinghong-ui';
 </script>
 
 <template>
-  something
-  <j-button>button</j-button>
+  <j-config>
+    <router-view />
+  </j-config>
 </template>
 
 <style scoped></style>
