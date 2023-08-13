@@ -1,7 +1,7 @@
 # JingHong-UI
 精弘组件库 基于 Vue3 + Vite + TypeScript
 
-[![NPM](https://www.npmjs.com/package/jinghong-ui)](npm)
+[![npm](https://img.shields.io/badge/npm-release-green)](https://www.npmjs.com/package/jinghong-ui)
 
 # 代码贡献说明
 
