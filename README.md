@@ -11,9 +11,10 @@
 
 ## 贡献组件库代码
 
-1. 在组件库目录 `components` 中执行 `pnpm run new [name]` 以创建一个新的组件
-2. 修改 `components/src/index.ts`
-3. 在 `site` 中引用并测试
+1. 在根目录执行 `pnpm dev` 启动项目，打开随项目启动的 `site` 应用以预览组件
+2. 在组件库目录 `components` 中执行 `pnpm run new [name]` 以创建一个新的组件
+3. 修改 `components/src/index.ts`
+4. 在 `site` 中引用并测试
 
 ## 贡献展示页面内容
 
