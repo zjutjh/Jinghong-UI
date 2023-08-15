@@ -25,4 +25,4 @@ export default {
 
 export { JButton, JInput, JRadio, JCheckbox, JConfig, JLayout, JSpace, JCard }
 // export { ColorThemeKey }
-// export type { JRadioData, JCheckboxData }
+export * from "./types"
