@@ -9,7 +9,6 @@ import JLayout from './JLayout/JLayout.vue'
 import JSpace from './JSpace/JSpace.vue'
 import JCard from './JCard/JCard.vue'
 
-
 export default {
   install(app: App) {
     app.component("JButton", JButton)
@@ -26,3 +25,4 @@ export default {
 export { JButton, JInput, JRadio, JCheckbox, JConfig, JLayout, JSpace, JCard }
 // export { ColorThemeKey }
 export * from "./types"
+export * from "./colors"

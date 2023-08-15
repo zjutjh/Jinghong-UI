@@ -9,13 +9,13 @@ const color = inject(ColorThemeKey, ref(JColorThemeDefault))
 <template>
   <div class="j-layout">
     <header>
-      <slot name="header" />
+      <slot name="header"></slot>
     </header>
     <main>
-      <slot name="main" />
+      <slot name="main"></slot>
     </main>
     <footer>
-      <slot name="footer" />
+      <slot name="footer"></slot>
     </footer>
   </div>
 </template>

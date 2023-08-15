@@ -1,5 +1,6 @@
 {
   "name": "jinghong-ui",
+  "type": "module",
   "version": "1.0.1",
   "scripts": {
     "build": "vite build",
@@ -7,9 +8,6 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "vue",
     "vue3",
@@ -20,9 +18,12 @@
   "author": "jhwl",
   "license": "MIT",
   "dependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
     "@vueuse/core": "^10.3.0",
+    "sass": "^1.65.1",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.1",
+    "vite-plugin-libcss": "^1.1.1",
     "vue": "^3.3.4"
   }
 }

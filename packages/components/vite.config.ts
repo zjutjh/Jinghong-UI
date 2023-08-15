@@ -1,41 +1,33 @@
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-import vue from '@vitejs/plugin-vue'
-
-// https://vitejs.dev/config/
+import vue from '@vitejs/plugin-vue';
+import libCss from 'vite-plugin-libcss';
 export default defineConfig({
   build: {
-    emptyOutDir: true,
-    lib: {
-      entry: {
-        index: './src/index.ts',
-      },
-      formats: ['es'],
-      name: 'jh-ui',
-    },
-    minify: false,
     rollupOptions: {
       external: ['vue'],
-      output: {
-        chunkFileNames: 'common/[name].js',
-        entryFileNames: (file) => {
-          if (file.name === 'index') {
-            return 'index.js'
-          } else {
-            return '[name]/index.js'
-          }
-        },
-        globals: {
-          vue: 'Vue',
-        },
-      }
-    }
+      input: ['src/index.ts'],
+      output: [
+        {
+          format: 'es',
+          entryFileNames: '[name].js',
+          preserveModules: true,
+          exports: 'named',
+          dir: 'dist',
+        }
+      ]
+    },
+    lib: {
+      entry: 'src/index.ts',
+      name: 'jinghong-ui',
+    },
   },
-  plugins: [vue(
-    {
-      script: {
-        defineModel: true,
-      },
-    }
-  ), dts()],
+  plugins: [vue(),
+  dts({
+    entryRoot: 'src',
+    outputDir: ['dist'],
+    tsconfigPath: 'tsconfig.json',
+  }),
+  libCss(),
+  ],
 })
