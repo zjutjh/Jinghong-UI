@@ -3,8 +3,8 @@ import type { JColorTheme } from "./types";
 export const JColorThemeDefault = <JColorTheme>{
   primary: '#d20001',
   secondary: '#f80032',
-  background: '#eee',
-  backgroundSecondary: '#ddd',
+  background: '#fefefe',
+  backgroundSecondary: '#f8f8f8',
   text: '#000',
   textSecondary: '#fff',
   name: 'j-color-theme-default',

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, provide, ref, watch } from 'vue';
+import { provide, ref, watch } from 'vue';
 import type { JColorTheme } from '../types';
 import { JColorThemeDefault } from '../colors';
 import { ColorThemeKey } from '../provide';

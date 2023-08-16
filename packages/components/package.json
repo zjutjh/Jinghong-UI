@@ -1,13 +1,11 @@
 {
-  "name": "jinghong-ui",
+  "name": "components",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
   "scripts": {
-    "build": "vite build",
-    "new": "cd ./scripts && bash new.sh"
+    "build": "vite build"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "keywords": [
     "vue",
     "vue3",
