@@ -44,6 +44,7 @@ const color = inject(ColorThemeKey, ref(JColorThemeDefault))
     background-color: v-bind('color.backgroundSecondary');
     padding-inline: 50px;
     padding-top: 50px;
+    padding-bottom: 20px;
     min-height: 100px;
     font-size: 18px;
     border-radius: 20px;
