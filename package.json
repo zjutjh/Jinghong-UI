@@ -7,13 +7,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "turbo run build",
+    "build:components": "pnpm -F components run build",
     "dev": "turbo run dev",
-    "new": "node scripts/new_components.js"
+    "new": "node scripts/new_components.js",
+    "publish": "node scripts/publish.js"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "turbo": "^1.10.12"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1"
   }
 }

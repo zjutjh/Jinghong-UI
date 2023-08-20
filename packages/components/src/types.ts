@@ -23,4 +23,15 @@ export type JColorTheme = {
   backgroundSecondary: string;
   text: string;
   textSecondary: string;
+  white: string;
 }
+
+export type JNavigatorData = {
+  key: string;
+  label: string;
+  disabled?: boolean;
+  icon?: string;
+  click?: () => void;
+}
+
+export type PageSize = 'small' | 'medium' | 'large';

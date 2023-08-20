@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import libCss from 'vite-plugin-libcss';
 export default defineConfig({
   build: {
+    // cssCodeSplit: true,
     rollupOptions: {
       external: ['vue'],
       input: ['src/index.ts'],
@@ -24,9 +25,9 @@ export default defineConfig({
   },
   plugins: [vue(),
   dts({
-    entryRoot: 'src',
-    outputDir: ['dist'],
+    entryRoot: './src',
     tsconfigPath: 'tsconfig.json',
+    outDir: 'dist',
   }),
   libCss(),
   ],

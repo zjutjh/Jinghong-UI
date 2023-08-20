@@ -1,24 +1,22 @@
 <script setup lang="ts">
-import { inject, ref } from 'vue';
+import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import { JColorThemeDark, JColorThemeDefault } from 'jinghong-ui/src/colors';
-import { ColorThemeKey } from 'jinghong-ui/src/provide';
 import { JButton, JLayout, JSpace } from 'jinghong-ui';
-const color = inject(ColorThemeKey, ref(JColorThemeDefault))
+import { JColorThemeDark, JColorThemeDefault } from 'jinghong-ui';
+
+const color = ref(JColorThemeDefault);
 
 function handleChangeTheme() {
-  if (color.value.name == JColorThemeDefault.name) {
-    color.value = JColorThemeDark
+  if (color.name == JColorThemeDefault.name) {
+    color.value = JColorThemeDark;
   } else {
-    color.value = JColorThemeDefault
+    color.value = JColorThemeDefault;
   }
 }
-
 </script>
 <template>
-  <j-layout>
+  <j-layout :theme="color">
     <template #header>
-
       <j-space>
         JingHong-UI
         <j-button :on-click="handleChangeTheme" type="primary"> 主题: {{ color.name }} </j-button>
@@ -36,9 +34,5 @@ function handleChangeTheme() {
   </div>
 </template>
 
-<style scoped lang="scss">
-.page {
-  background-color: v-bind('color.background');
-  color: v-bind('color.text');
-}
-</style>
+<style scoped lang="scss"></style>
+

@@ -7,6 +7,7 @@ export const JColorThemeDefault = <JColorTheme>{
   backgroundSecondary: '#f8f8f8',
   text: '#000',
   textSecondary: '#fff',
+  white: '#fff',
   name: 'j-color-theme-default',
 }
 
@@ -17,5 +18,6 @@ export const JColorThemeDark = <JColorTheme>{
   backgroundSecondary: '#666',
   text: '#ffffff',
   textSecondary: '#ffffff',
+  white: '#000',
   name: 'j-color-theme-dark'
 }

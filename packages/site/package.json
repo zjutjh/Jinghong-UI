@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "jinghong-ui": "workspace:^",
+    "jinghong-ui": "workspace:*",
     "sass": "^1.65.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
