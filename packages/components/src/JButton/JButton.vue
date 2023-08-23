@@ -3,66 +3,105 @@ import { inject, ref } from 'vue';
 import { JColorThemeDefault } from '../colors';
 import { ColorThemeKey } from '../provide';
 
-
-const props = defineProps<{
+type Props = {
   onClick?: () => void,
-  type?: 'primary' | 'secondary',
   disabled?: boolean,
-}>();
+  filled?: boolean,
+  // circle?: boolean,
+  // rect?: boolean,
+  // cube?: boolean,
+  shape?: 'rect' | 'round-rect' | 'circle' | 'cube'
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  disabled: false,
+  filled: false,
+  // circle: false,
+  // rect: false,
+  // cube: false,
+  shape: 'rect',
+});
 
 const color = inject(ColorThemeKey, ref(JColorThemeDefault))
 
 </script>
 <template>
-  <button @click="props.onClick" :disabled="props.disabled || props.onClick == null" :class="props.type">
+  <button @click="props.onClick" :disabled="props.disabled || props.onClick == null" :class="[{
+    'filled': props.filled,
+  },
+  props.shape
+  ]">
     <slot></slot>
+    <div class="icon">
+      <slot name="icon" />
+    </div>
   </button>
 </template>
 
 <style scoped lang="scss">
 button {
-  color: v-bind('color.text');
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: v-bind('color.primary1');
+  background-color: v-bind('color.white');
+  border: 1px solid v-bind('color.primary1');
   border-radius: 20px;
   font-size: 18px;
-  padding-inline: 10px;
+  padding-inline: 50px;
   padding-block: 5px;
-  margin-inline: 5px;
   cursor: pointer;
-  box-shadow: 1px 2px 1px 0px rgba(0, 0, 0, 0.5);
+
+  :deep(svg) {
+    fill: v-bind('color.primary1');
+    width: 30px;
+    height: 30px;
+  }
 
   &:hover {
-    box-shadow: 1px 2px 1px 0px rgba(0, 0, 0, 0.8);
-    transition: box-shadow 0.5s;
+    box-shadow: 0px 0px 5px v-bind('color.gray1');
+    transition: 0.3s;
   }
 
-  &.primary {
-    background-color: v-bind('color.primary');
-    color: white;
+  &.filled {
+    color: v-bind('color.white');
+    background-color: v-bind('color.primary1');
+    border: none;
 
-    &:hover {
-      opacity: 0.8;
-      transition: background-color 0.5s;
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+    :deep(svg) {
+      fill: v-bind("color.white")
     }
   }
 
-  &.secondary {
-    background-color: v-bind('color.secondary');
-    color: white;
+  &.circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
 
-    &:hover {
-      opacity: 0.8;
-      transition: background-color 0.5s;
-    }
+  &.rect {
+    border-radius: 8px;
+  }
 
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+  &.cube {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 0;
+  }
+
+  .icon {
+    display: flex;
+
+    position: relative;
+    right: -20px;
+
+    :deep(svg) {
+      max-width: 24px;
+      max-height: 24px;
     }
   }
 }
