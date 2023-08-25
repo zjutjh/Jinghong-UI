@@ -24,22 +24,22 @@ const color = inject(ColorThemeKey, ref(JColorThemeDefault))
 .j-layout {
   display: flex;
   flex-direction: column;
-  color: v-bind('color.text');
+  color: v-bind('color.gray4');
 
   header {
-    background-color: v-bind('color.backgroundSecondary');
+    background-color: v-bind('color.gray3');
     padding-inline: 10px;
     padding-block: 5px;
   }
 
   main {
-    background-color: v-bind('color.background');
+    background-color: v-bind('color.gray2');
     padding-inline: 10px;
     padding-block: 5px;
   }
 
   footer {
-    background-color: v-bind('color.backgroundSecondary');
+    background-color: v-bind('color.gray3');
     padding-inline: 10px;
     padding-block: 5px;
   }

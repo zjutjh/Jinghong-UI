@@ -9,7 +9,7 @@ import JLayout from './JLayout/JLayout.vue'
 import JSpace from './JSpace/JSpace.vue'
 import JCard from './JCard/JCard.vue'
 import JNavigator from './JNavigator/JNavigator.vue'
-
+import JIcon from './JIcon/JIcon.vue'
 export default {
   install(app: App) {
     app.component("JButton", JButton)
@@ -21,10 +21,11 @@ export default {
     app.component("JSpace", JSpace)
     app.component("JCard", JCard)
     app.component("JNavigator", JNavigator)
+    app.component("JIcon", JIcon)
   }
 }
 
-export { JButton, JInput, JRadio, JCheckbox, JConfig, JLayout, JSpace, JCard, JNavigator }
+export { JButton, JInput, JRadio, JCheckbox, JConfig, JLayout, JSpace, JCard, JNavigator, JIcon }
 // export { ColorThemeKey }
 export * from "./types"
 export * from "./colors"

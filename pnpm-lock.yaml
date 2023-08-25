@@ -65,6 +65,9 @@ importers:
         specifier: ^3.3.4
         version: 3.3.4
     devDependencies:
+      '@vicons/ionicons4':
+        specifier: ^0.12.0
+        version: 0.12.0
       '@vitejs/plugin-vue':
         specifier: ^4.2.3
         version: 4.2.3(vite@4.4.5)(vue@3.3.4)
@@ -436,7 +439,6 @@ packages:
 
   /@vicons/ionicons4@0.12.0:
     resolution: {integrity: sha512-i+7YwlpCrqD6m9esbZLy1bpVQlh4CKugtS3OzgfNw6BLTQQK6HT7drktaJgcESj/BTr4avdNbAtMQXx56wSVMg==}
-    dev: false
 
   /@vitejs/plugin-vue@4.2.3(vite@4.4.5)(vue@3.3.4):
     resolution: {integrity: sha512-R6JDUfiZbJA9cMiguQ7jxALsgiprjBeHL5ikpXfJCH62pPHtI+JdJ5xWj6Ev73yXSlYl86+blXn1kZHQ7uElxw==}

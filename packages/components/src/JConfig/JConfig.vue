@@ -1,29 +1,34 @@
 <script setup lang="ts">
 import { onMounted, provide, ref, watch } from 'vue';
-import type { JColorTheme, PageSize } from '../types';
+import type { JColorTheme, ComponentSize } from '../types';
 import { JColorThemeDefault } from '../colors';
-import { ColorThemeKey, PageSizeKey } from '../provide';
+import { ColorThemeKey, ComponentSizeKey } from '../provide';
 
 type Props = {
   theme?: JColorTheme;
+  size?: ComponentSize;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   theme: () => JColorThemeDefault,
-  pageSize: 'medium',
 });
 
 const color = ref(props.theme);
-const size = ref<PageSize>('large');
+const size = ref<ComponentSize>(props.size ? props.size : 'large');
 
 function updateTheme() {
   color.value = props.theme;
 }
 
+// function updateSize() {
+//   size.value = props.size;
+// }
+
 watch(() => props.theme, updateTheme);
+// watch(() => props.size, updateSize)
 
 provide(ColorThemeKey, color);
-provide(PageSizeKey, size);
+provide(ComponentSizeKey, size);
 
 function handleResize() {
   const width = document.body.clientWidth;
@@ -38,7 +43,8 @@ function handleResize() {
 
 onMounted(() => {
   handleResize();
-  window.onresize = handleResize;
+  if (props.size == undefined)
+    window.onresize = handleResize;
 });
 
 </script>

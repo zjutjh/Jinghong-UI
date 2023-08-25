@@ -7,6 +7,7 @@ type Prop = {
   title?: string,
 }
 const props = withDefaults(defineProps<Prop>(), {
+  title: undefined,
 })
 const color = inject(ColorThemeKey, ref(JColorThemeDefault))
 
@@ -33,15 +34,15 @@ const color = inject(ColorThemeKey, ref(JColorThemeDefault))
     margin-top: 5px;
     width: fit-content;
     min-width: 30px;
-    background-color: v-bind('color.primary');
-    color: v-bind('color.textSecondary');
+    background-color: v-bind('color.primary1');
+    color: v-bind('color.gray4');
     padding-inline: 20px;
     padding-block: 5px;
     font-size: 20px;
   }
 
   main {
-    background-color: v-bind('color.backgroundSecondary');
+    background-color: v-bind('color.gray4');
     padding-inline: 50px;
     padding-top: 50px;
     padding-bottom: 20px;

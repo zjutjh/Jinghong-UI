@@ -1,5 +1,5 @@
 import { InjectionKey, Ref } from "vue";
-import type { JColorTheme, PageSize } from "./types";
+import type { JColorTheme, ComponentSize } from "./types";
 
 export const ColorThemeKey = Symbol() as InjectionKey<Ref<JColorTheme>>;
-export const PageSizeKey = Symbol() as InjectionKey<Ref<PageSize>>;
+export const ComponentSizeKey = Symbol() as InjectionKey<Ref<ComponentSize>>;
