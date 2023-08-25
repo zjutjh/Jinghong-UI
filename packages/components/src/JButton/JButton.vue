@@ -46,11 +46,11 @@ button {
   color: v-bind('color.primary1');
   background-color: v-bind('color.white');
   border: 1px solid v-bind('color.primary1');
-  border-radius: 20px;
   font-size: 18px;
   padding-inline: 50px;
   padding-block: 5px;
   cursor: pointer;
+  flex-flow: nowrap;
 
   :deep(svg) {
     fill: v-bind('color.primary1');
@@ -71,6 +71,10 @@ button {
     :deep(svg) {
       fill: v-bind("color.white")
     }
+  }
+
+  &.round-rect {
+    border-radius: 20px;
   }
 
   &.circle {
