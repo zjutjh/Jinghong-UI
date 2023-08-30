@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, onMounted, ref } from 'vue';
+import { computed, inject, ref } from 'vue';
 import { ColorThemeKey } from '../provide';
 import { JColorThemeDefault } from '..';
 
@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'middle',
 })
 
-const size = computed(() => {
+const size = computed<[number, number]>(() => {
   if (typeof props.size === 'string') {
     if (props.size === 'small') {
       return [30, 30]
@@ -29,6 +29,7 @@ const size = computed(() => {
 })
 
 const color = inject(ColorThemeKey, ref(JColorThemeDefault))
+
 </script>
 <template>
   <div class="j-icon">

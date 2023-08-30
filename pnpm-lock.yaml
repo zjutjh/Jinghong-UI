@@ -83,6 +83,9 @@ importers:
 
   packages/site:
     dependencies:
+      '@vicons/ionicons4':
+        specifier: ^0.12.0
+        version: 0.12.0
       jinghong-ui:
         specifier: workspace:*
         version: link:../jinghong-ui

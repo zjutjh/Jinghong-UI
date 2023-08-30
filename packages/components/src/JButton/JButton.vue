@@ -7,18 +7,12 @@ type Props = {
   onClick?: () => void,
   disabled?: boolean,
   filled?: boolean,
-  // circle?: boolean,
-  // rect?: boolean,
-  // cube?: boolean,
   shape?: 'rect' | 'round-rect' | 'circle' | 'cube'
 }
 
 const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   filled: false,
-  // circle: false,
-  // rect: false,
-  // cube: false,
   shape: 'rect',
 });
 

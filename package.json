@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "turbo run build",
-    "build:components": "pnpm -F components run build",
+    "build:components": "pnpm -F components run build && node scripts/build_publish.js",
     "dev": "turbo run dev",
     "new": "node scripts/new_components.js",
     "publish": "node scripts/publish.js"

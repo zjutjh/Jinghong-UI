@@ -9,7 +9,6 @@ import { useVModel, useWindowScroll } from '@vueuse/core';
 type Props = {
   data: JNavigatorData[],
   now: string, // one of the data's key
-
   vertical?: boolean,
   fixed?: boolean,
   autoHide?: boolean,
@@ -54,14 +53,21 @@ watch(y, (value: number) => {
 function handleClick(item: JNavigatorData) {
   if (item.disabled) return
   now.value = item.key
+  emits('update:now', item.key)
   if (item.click) item.click()
+  if (props.vertical) {
+    hide.value = true;
+    emits('update:hide', true)
+  }
 }
 
 function handleDropDown() {
   if (!props.vertical)
     isDropDown.value = !isDropDown.value;
-  else
+  else {
+    hide.value = false;
     emits('update:hide', !hide.value)
+  }
 }
 
 </script>
@@ -86,7 +92,9 @@ function handleDropDown() {
           'selected': item.key == now,
           'disabled': item.disabled,
         }" @click="handleClick(item)">
-          {{ item.label }}
+          <span>
+            {{ item.label }}
+          </span>
         </div>
       </div>
 
@@ -104,7 +112,9 @@ function handleDropDown() {
       </div>
 
     </div>
-    <div style="margin-top: 80px">
+    <div style="margin-top: 80px" v-if="!props.vertical">
+    </div>
+    <div class="modal" v-show="props.vertical && !hide">
     </div>
   </div>
 </template>
@@ -150,33 +160,41 @@ function handleDropDown() {
 
   .j-navigator-item {
     padding: 5px 20px;
-    margin: 0 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    color: v-bind("color.white");
-
+    width: fit-content;
     transition: all 0.3s;
 
+    span {
+      width: fit-content;
+      display: flex;
+      color: v-bind("color.white");
+      width: fit-content;
+      border-radius: 20px;
+      cursor: pointer;
+      padding: 5px 20px;
+    }
+
     &:hover {
-      background-color: v-bind("color.primary2");
-      color: v-bind("color.gray4");
+      span {
+        background-color: v-bind("color.primary2");
+        color: v-bind("color.gray4");
+      }
     }
 
     &.selected {
-      background-color: v-bind("color.gray3");
-      color: v-bind("color.primary1");
+      span {
+        background-color: v-bind("color.gray3");
+        color: v-bind("color.primary1");
+      }
 
       &::after {
         content: '';
         display: block;
         position: relative;
         width: 100%;
-        height: 3px;
         background-color: v-bind("color.gray3");
-        top: 14px;
-        padding: 0 20px;
-        left: -20px;
+        top: 7px;
         border-radius: 3px;
+        height: 3px;
       }
 
     }
@@ -286,10 +304,6 @@ function handleDropDown() {
 
     .j-navigator-item {
       margin-inline: auto;
-
-      border-radius: 5px;
-
-      width: 50%;
       margin-top: 10px;
 
       &::after {
@@ -306,5 +320,15 @@ function handleDropDown() {
     border-radius: 0px 20px 20px 0px;
     padding: 2px;
   }
+}
+
+.modal {
+  z-index: 900;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
