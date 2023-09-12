@@ -127,9 +127,6 @@ function handleDropDown() {
     <div
       style="margin-top: 80px"
     />
-    <div
-      class="modal"
-    />
   </div>
 </template>
 
@@ -289,15 +286,5 @@ function handleDropDown() {
       background-color: gray;
     }
   }
-}
-
-.modal {
-  z-index: 900;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
