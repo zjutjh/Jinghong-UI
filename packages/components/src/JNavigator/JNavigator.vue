@@ -9,14 +9,12 @@ import { useVModel, useWindowScroll } from '@vueuse/core';
 type Props = {
   data: JNavigatorData[],
   now: string, // one of the data's key
-  vertical?: boolean,
   fixed?: boolean,
   autoHide?: boolean,
   hide?: boolean,
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  vertical: false,
   fixed: false,
   autoHide: false,
   hide: false,
@@ -55,67 +53,83 @@ function handleClick(item: JNavigatorData) {
   now.value = item.key
   emits('update:now', item.key)
   if (item.click) item.click()
-  if (props.vertical) {
-    hide.value = true;
-    emits('update:hide', true)
-  }
 }
 
 function handleDropDown() {
-  if (!props.vertical)
-    isDropDown.value = !isDropDown.value;
-  else {
     hide.value = false;
     emits('update:hide', !hide.value)
-  }
 }
 
 </script>
 <template>
   <div>
-    <div class="j-navigator" :class="[{
-      'vertical': props.vertical,
-      'fixed': props.fixed,
-      'auto-hide': props.autoHide,
-      'show': !hide,
-    },
-      size,
-    ]">
+    <div
+      class="j-navigator"
+      :class="[{
+                 'fixed': props.fixed,
+                 'auto-hide': props.autoHide,
+                 'show': !hide,
+               },
+               size,
+      ]"
+    >
       <div class="logo">
-        <slot name="logo">
-        </slot>
+        <slot name="logo" />
       </div>
 
-      <div class="menu" v-if="size == 'large' || props.vertical">
-
-        <div class="j-navigator-item" v-for="item in props.data" :class="{
-          'selected': item.key == now,
-          'disabled': item.disabled,
-        }" @click="handleClick(item)">
+      <div
+        v-if="size == 'large'"
+        class="menu"
+      >
+        <div
+          v-for="item in props.data"
+          :key="item.key"
+          class="j-navigator-item"
+          :class="{
+            'selected': item.key == now,
+            'disabled': item.disabled,
+          }"
+          @click="handleClick(item)"
+        >
           <span>
             {{ item.label }}
           </span>
         </div>
       </div>
 
-      <div class="drop-down" :class="{ 'show': isDropDown }" v-if="size != 'large'">
-        <div class="j-navigator-item" v-for="item in props.data" :class="{
-          'selected': item.key == now,
-          'disabled': item.disabled,
-        }" @click="handleClick(item)">
+      <div
+        v-if="size != 'large'"
+        class="drop-down"
+        :class="{ 'show': isDropDown }"
+      >
+        <div
+          v-for="item in props.data"
+          :key="item.key"
+          class="j-navigator-item"
+          :class="{
+            'selected': item.key == now,
+            'disabled': item.disabled,
+          }"
+          @click="handleClick(item)"
+        >
           {{ item.label }}
         </div>
       </div>
 
-      <div class="control" v-if="size == 'medium' || size == 'small' || props.vertical" @click="handleDropDown">
+      <div
+        v-if="size == 'medium' || size == 'small'"
+        class="control"
+        @click="handleDropDown"
+      >
         <MdMenu />
       </div>
-
     </div>
-    <div style="margin-top: 80px" v-if="!props.vertical">
-    </div>
-    <div class="modal" v-show="props.vertical && !hide">
-    </div>
+    <div
+      style="margin-top: 80px"
+    />
+    <div
+      class="modal"
+    />
   </div>
 </template>
 
@@ -274,51 +288,6 @@ function handleDropDown() {
       height: max-content;
       background-color: gray;
     }
-  }
-}
-
-.j-navigator.vertical {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  top: 0;
-  height: 100vh;
-
-  z-index: 1000;
-
-  left: -200px;
-  width: 200px;
-
-  transition: 0.3s;
-
-  &.show {
-    left: 0;
-    transition: 0.3s;
-  }
-
-  .menu {
-    display: flex;
-    flex-direction: column;
-    justify-items: start;
-
-    .j-navigator-item {
-      margin-inline: auto;
-      margin-top: 10px;
-
-      &::after {
-        display: none;
-      }
-    }
-  }
-
-  .control {
-    position: absolute;
-    right: -50px;
-    top: 50vh;
-    background-color: v-bind("color.primary1");
-    border-radius: 0px 20px 20px 0px;
-    padding: 2px;
   }
 }
 

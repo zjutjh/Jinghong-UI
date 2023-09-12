@@ -39,7 +39,10 @@ const color = inject(ColorThemeKey, ref(JColorThemeDefault))
 
 <style scoped lang="scss">
 .j-icon {
-  fill: v-bind("color.white");
+  svg {
+    fill: v-bind("color.white");
+  }
+
   width: v-bind("size[0]")px;
   height: v-bind("size[1]")px;
 }

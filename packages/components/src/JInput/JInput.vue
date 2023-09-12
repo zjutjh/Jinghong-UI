@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+defineEmits(["update:modelValue"]);
 const props = defineProps<{
   label?: string;
   placeholder?: string;
@@ -22,12 +23,23 @@ const validate = () => {
 <template>
   <div class="j-input">
     <span class="label">{{ props.label }}</span>
-    <component :value="modelValue" @input="
-      $emit('update:modelValue', ($event.target as HTMLInputElement).value);
-    " :disabled="disabled" :placeholder="placeholder" @change="validate"
-      :is="props.type == 'textarea' ? 'textarea' : 'input'" :class="status">
-    </component>
-    <div class="message" :class="status">{{ props.errorMessage }}</div>
+    <component
+      :is="props.type == 'textarea' ? 'textarea' : 'input'"
+      :value="modelValue"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      :class="status"
+      @input="
+        $emit('update:modelValue', ($event.target as HTMLInputElement).value);
+      "
+      @change="validate"
+    />
+    <div
+      class="message"
+      :class="status"
+    >
+      {{ props.errorMessage }}
+    </div>
   </div>
 </template>
 

@@ -11,7 +11,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 </script>
 <template>
-  <div class="j-space" :class="[{ vertical: props.vertical }, props.justify]">
+  <div
+    class="j-space"
+    :class="[{ vertical: props.vertical }, props.justify]"
+  >
     <slot />
   </div>
 </template>

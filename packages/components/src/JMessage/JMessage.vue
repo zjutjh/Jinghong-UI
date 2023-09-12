@@ -9,8 +9,8 @@ const message = ref<JMessageData[]>({
     <slot />
     <div class="message">
       <div class="message-item">
-        <div class="icon"></div>
-        <div class="content"></div>
+        <div class="icon" />
+        <div class="content" />
       </div>
     </div>
   </div>

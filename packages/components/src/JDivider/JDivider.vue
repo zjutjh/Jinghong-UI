@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 <template>
-  <hr />
+  <hr>
 </template>
 
 <style scoped lang="scss">

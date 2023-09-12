@@ -18,8 +18,15 @@ function handleSelect(value: string) {
 }
 </script>
 <template>
-  <div class="j-checkbox" v-for="value in values">
-    <input type="checkbox" :checked="modelValue.includes(value.key)" @change="handleSelect(value.key)" />
+  <div
+    v-for="value in values"
+    class="j-checkbox"
+  >
+    <input
+      type="checkbox"
+      :checked="modelValue.includes(value.key)"
+      @change="handleSelect(value.key)"
+    >
     <label>{{ value.label }}</label>
   </div>
 </template>

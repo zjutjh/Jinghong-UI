@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { JButton, JSpace, JDivider } from 'jinghong-ui';
 import { IosArrowForward, MdCheckmark } from '@vicons/ionicons4';
-document.title = 'JButton 按钮 | Jinghong UI';
 </script>
 <template>
   众多不同的按钮:

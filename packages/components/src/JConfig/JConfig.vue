@@ -11,6 +11,7 @@ type Props = {
 
 const props = withDefaults(defineProps<Props>(), {
   theme: () => JColorThemeDefault,
+  size: () => 'large',
 });
 
 const color = ref(props.theme);

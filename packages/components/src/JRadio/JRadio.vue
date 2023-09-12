@@ -15,8 +15,15 @@ function handleSelect(value: string) {
 </script>
 
 <template>
-  <div class="j-radio" v-for="value in props.values">
-    <input type="radio" @change="handleSelect(value.key)" :checked="props.modelValue == value.key" />
+  <div
+    v-for="value in props.values"
+    class="j-radio"
+  >
+    <input
+      type="radio"
+      :checked="props.modelValue == value.key"
+      @change="handleSelect(value.key)"
+    >
     <label>{{ value.label }}</label>
   </div>
 </template>

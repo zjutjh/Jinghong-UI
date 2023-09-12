@@ -1,0 +1,20 @@
+{
+  "name": "jinghong-ui",
+  "type": "module",
+  "version": "1.0.7",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "keywords": [
+    "vue",
+    "vue3",
+    "ui",
+    "jinghong-ui",
+    "typescript"
+  ],
+  "author": "jhwl",
+  "license": "MIT",
+  "dependencies": {
+    "@vueuse/core": "^10.3.0",
+    "vue": "^3.0.0"
+  }
+}

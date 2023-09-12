@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterView, useRouter } from 'vue-router'
-import { JColorTheme, JColorThemeDark, JColorThemeDefault, JConfig, JNavigator } from 'jinghong-ui';
+import { JColorTheme, JColorThemeDark, JColorThemeDefault, JConfig, JNavigator, JIcon } from 'jinghong-ui';
 import type { JNavigatorData } from 'jinghong-ui';
 import { ref } from 'vue';
 const now = ref<string>('home');
@@ -43,6 +43,9 @@ document.title = 'Jinghong UI';
   <j-config :color="color">
     <div class="page">
       <j-navigator :data="menu" v-model:now="now" v-model:hide="hide" auto-hide fixed>
+        <template #logo>
+          <img src="/logo.png" style="height: 50px; padding: 5px" />
+        </template>
       </j-navigator>
       <router-view />
       <footer>

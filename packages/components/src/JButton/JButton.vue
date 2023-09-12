@@ -11,6 +11,7 @@ type Props = {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  onClick: undefined,
   disabled: false,
   filled: false,
   shape: 'rect',
@@ -20,12 +21,16 @@ const color = inject(ColorThemeKey, ref(JColorThemeDefault))
 
 </script>
 <template>
-  <button @click="props.onClick" :disabled="props.disabled || props.onClick == null" :class="[{
-    'filled': props.filled,
-  },
-  props.shape
-  ]">
-    <slot></slot>
+  <button
+    :disabled="props.disabled || props.onClick == null"
+    :class="[{
+               'filled': props.filled,
+             },
+             props.shape
+    ]"
+    @click="props.onClick"
+  >
+    <slot />
     <div class="icon">
       <slot name="icon" />
     </div>
